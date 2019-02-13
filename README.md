@@ -8,5 +8,5 @@ Python 3.7.2 32-bit<br>
 
 Python 包：<br>
 pywin32 (GitHub下载安装.exe文件)<br>
-wxPython （pip install）<br>
-
+wxPython (pip install)<br>
+opencv-python (pip install)<br>

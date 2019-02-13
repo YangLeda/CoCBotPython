@@ -5,10 +5,8 @@ from PIL import Image
 import math
 
 def window_capture(hwnd, filepath):
-  # Change the line below depending on whether you want the whole window
-  # or just the client area. 
-  #left, top, right, bot = win32gui.GetClientRect(hwnd)
-  left, top, right, bot = win32gui.GetWindowRect(hwnd)
+
+  left, top, right, bot = win32gui.GetClientRect(hwnd)
   w = math.ceil((right - left) *  1.25)
   h = math.ceil((bot - top) *  1.25)
   print(w)
@@ -27,10 +25,8 @@ def window_capture(hwnd, filepath):
   # 高度saveDC，将截图保存到saveBitmap中
   saveDC.SelectObject(saveBitMap)
 
-  # Change the line below depending on whether you want the whole window
-  # or just the client area. 
-  #result = windll.user32.PrintWindow(hwnd, saveDC.GetSafeHdc(), 1)
-  result = windll.user32.PrintWindow(hwnd, saveDC.GetSafeHdc(), 0)
+
+  result = windll.user32.PrintWindow(hwnd, saveDC.GetSafeHdc(), 1)
   print(result)
 
   bmpinfo = saveBitMap.GetInfo()

@@ -34,6 +34,7 @@ class HelloFrame(wx.Frame):
 
     def OnStart(self, event):
         hwnd = win32gui.FindWindow(0, "夜神模拟器")
+        #hwnd = 132248
         print(hwnd)
         if hwnd != 0:
             self.st.SetLabel(str(win32gui.GetWindowRect(hwnd)))
