@@ -1,4 +1,4 @@
-# COCBotPython
+# CoCBotPython
 
 环境：<br>
 Windows 10 64-bit<br>
