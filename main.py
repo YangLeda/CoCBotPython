@@ -28,7 +28,7 @@ class HelloFrame(wx.Frame):
         font = font.Bold()
         self.st.SetFont(font)
 
-        open_button = wx.Button(pnl, label = "查找模拟器窗口句柄")
+        open_button = wx.Button(pnl, label = "Start")
         open_button.Bind(wx.EVT_BUTTON, self.OnStart)
 
 
@@ -41,7 +41,7 @@ class HelloFrame(wx.Frame):
             self.st.SetLabel("未找到模拟器窗口")
 
         timeStart = time.time()
-        window_capture.window_capture(hwnd, "temp/window_capture.jpg")
+        window_capture.window_capture(hwnd, "window_capture.jpg")
         timeEnd = time.time()
         print(timeEnd - timeStart)
         
