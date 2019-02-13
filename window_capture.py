@@ -4,7 +4,7 @@ from ctypes import windll
 from PIL import Image
 import math
 
-def window_capture(hwnd, filename):
+def window_capture(hwnd, filepath):
   # Change the line below depending on whether you want the whole window
   # or just the client area. 
   #left, top, right, bot = win32gui.GetClientRect(hwnd)
@@ -26,7 +26,7 @@ def window_capture(hwnd, filename):
   saveBitMap.CreateCompatibleBitmap(mfcDC, w, h)
   # 高度saveDC，将截图保存到saveBitmap中
   saveDC.SelectObject(saveBitMap)
-  
+
   # Change the line below depending on whether you want the whole window
   # or just the client area. 
   #result = windll.user32.PrintWindow(hwnd, saveDC.GetSafeHdc(), 1)
@@ -48,4 +48,4 @@ def window_capture(hwnd, filename):
 
   if result == 1:
       #PrintWindow Succeeded
-      im.save("test.png")
+      im.save(filepath)

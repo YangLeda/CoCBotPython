@@ -41,7 +41,7 @@ class HelloFrame(wx.Frame):
             self.st.SetLabel("未找到模拟器窗口")
 
         timeStart = time.time()
-        window_capture.window_capture(hwnd, "haha.jpg")
+        window_capture.window_capture(hwnd, "temp/window_capture.jpg")
         timeEnd = time.time()
         print(timeEnd - timeStart)
         
