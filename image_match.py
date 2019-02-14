@@ -29,6 +29,6 @@ def image_match(source_filepath, template_filepath, threshold = 0.7, cvt_gray = 
     for pt in zip(*loc[::-1]): 
         cv2.rectangle(img_source, pt, (pt[0] + w, pt[1] + h), (0,0,255), 3)
 
-    result_save_marked = cv2.imwrite("marked.jpg", img_source)
+    result = cv2.imwrite("marked.jpg", img_source)
 
-    return result_save_marked
+    return result

@@ -34,21 +34,22 @@ class HelloFrame(wx.Frame):
         open_button = wx.Button(pnl, label = "Start")
         open_button.Bind(wx.EVT_BUTTON, self.OnStart)
 
-        self.screenshot_sb = wx.StaticBitmap(self, -1, wx.NullBitmap, (100, 100))
+        self.screenshot_sb = wx.StaticBitmap(pnl, -1, wx.NullBitmap, (100, 100))
 
     def OnStart(self, event):
         hwnd = win32gui.FindWindow(0, "夜神模拟器")
-        #hwnd = 132248
-        print(hwnd)
+
         if hwnd != 0:
-            self.st.SetLabel(str(win32gui.GetWindowRect(hwnd)))
+            self.st.SetLabel(str(hwnd))
         else:
             self.st.SetLabel("未找到模拟器窗口")
 
         timeStart = time.time()
+
         # 截图并查找
         window_capture.window_capture(hwnd, "window_capture.jpg")
         result_save_marked = image_match.image_match("window_capture.jpg", "samples/collect_water.jpg")
+        
         timeEnd = time.time()
         print(timeEnd - timeStart)
 
