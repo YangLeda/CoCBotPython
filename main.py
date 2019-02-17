@@ -11,23 +11,24 @@ import image_match
 
 class HelloFrame(wx.Frame):
 
-    def __init__(self, *args, **kw):
+    def __init__(self, parent, title):
         # ensure the parent's __init__ is called
-        super(HelloFrame, self).__init__(*args, **kw)
-
+        super(HelloFrame, self).__init__(parent, title=title, size=(1000,600))
         self.InitUI()
         self.Center()
 
     def InitUI(self):
-        pnl = wx.Panel(self)
-        vbox_0 = wx.BoxSizer(wx.VERTICAL)
+        self.statusbar = self.CreateStatusBar(1)
+        self.statusbar.SetStatusText("未启动")
 
+        pnl = wx.Panel(self)
+
+        vbox_0 = wx.BoxSizer(wx.VERTICAL)
 
         hbox_0 = wx.BoxSizer(wx.HORIZONTAL)
         self.start_button = wx.Button(pnl, label = "启动")
         self.start_button.Bind(wx.EVT_BUTTON, self.OnStartBtn)
         hbox_0.Add(self.start_button, proportion=1, flag=wx.EXPAND|wx.ALL, border=10)
-
 
         hbox_1 = wx.BoxSizer(wx.HORIZONTAL)
         self.result_st = wx.StaticText(pnl, label="未启动")
@@ -73,4 +74,3 @@ if __name__ == '__main__':
     frm.Show()
     # Start the event loop.
     app.MainLoop()
-    
