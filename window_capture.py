@@ -7,6 +7,7 @@ import math
 def window_capture(hwnd, filepath):
 
   left, top, right, bot = win32gui.GetClientRect(hwnd)
+
   # Windows 10 UI 缩放设置为 125%
   w = math.ceil((right - left) *  1.25)
   h = math.ceil((bot - top) *  1.25)
@@ -30,6 +31,7 @@ def window_capture(hwnd, filepath):
 
   # 后台截图
   result = windll.user32.PrintWindow(hwnd, saveDC.GetSafeHdc(), 1)
+
   if result != True:
     return False
 
