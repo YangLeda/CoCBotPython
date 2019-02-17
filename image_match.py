@@ -3,8 +3,12 @@
 import cv2 
 import numpy as np 
 
+# debug
+import time
 
 def image_match(source_filepath, template_filepath, threshold = 0.7, cvt_gray = False):
+    
+    timeStart = time.time()
 
     # Source image 
     img_source = cv2.imread(source_filepath)
@@ -30,5 +34,8 @@ def image_match(source_filepath, template_filepath, threshold = 0.7, cvt_gray = 
         cv2.rectangle(img_source, pt, (pt[0] + w, pt[1] + h), (0,0,255), 3)
 
     result = cv2.imwrite("marked.jpg", img_source)
+
+    timeEnd = time.time()
+    print("找图耗时： " + str(timeEnd - timeStart) + "s")
 
     return result
